@@ -1,0 +1,8 @@
+def sample_one():
+    print("stated")
+
+def sample_two():
+    print("eated")
+
+def test_three():
+    print("bursted")

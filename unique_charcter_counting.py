@@ -20,12 +20,14 @@ def unique_character_map(str1):
     for i in range(len(str1)):
         if str1[i] in new:
             final.append(new[str1[i]])
-            c+=1
+            c += 1
         else:
+            print(i , c)
+            print(i-c)
             new[str1[i]] = i-c
             final.append(new[str1[i]])
 
 
     return final
 
-print(unique_character_map("canine"))
+print(unique_character_map("fluffy"))

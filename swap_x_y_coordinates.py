@@ -1,7 +1,7 @@
 import re
 
 import re
-def swap_x_y_coord_string(str1):
+def swap_x_y_coord_strings(str1):
     splitter = str1.split(")")
     print(splitter)
     new = []

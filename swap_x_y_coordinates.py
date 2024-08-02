@@ -13,4 +13,4 @@ def swap_x_y_coord_strings(str1):
             new.append(tuple(tup[::-1]))
     return ", ".join([f"{str(i)}" for i in new])
 
-print(swap_x_y_coord_string("(11, 23), (43, 99) , (67,90)"))
+print(swap_x_y_coord_strings("(11, 23), (43, 99) , (67,90)"))

@@ -1,4 +1,4 @@
-l = ['m' , 'g' , 'g' , 'k' , 'I','g' , 'l']
+l = ['m' , 'g' , 'g' , 'k' , 'I','g' , 'l',"u"]
 k = {}
 for i in l:
     if i in k:

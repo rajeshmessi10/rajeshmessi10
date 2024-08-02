@@ -7,7 +7,7 @@ add2 = 0
 for row in range(0,len(a)):
     add1 += a[row][row]
     add2 += a[row][-row-1]
-print(-(add1 - add2))
+print(abs(add1 - add2))
 
 
 

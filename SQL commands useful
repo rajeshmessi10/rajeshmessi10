@@ -83,6 +83,8 @@ ORDER BY :
 The ORDER BY clause in SQL is used to sort the result set of a query by one or more columns.
 select release_year ,industry from movies group by release_year , industry order by release_year desc
 
+update movies set industry = 'Hollywood' where movie_id = 101
+delete from artist where namess = 'king'
 
 
 

@@ -1,0 +1,106 @@
+ SELECT * FROM movies WHERE title LIKE "%THOR%"
+ SELECT count(*) FROM movies WHERE industry = "hollywood";
+ SELECT distinct industry FROM movies
+SELECT * FROM movies WHERE studio = " "
+SELECT * FROM movies WHERE imdb_rating	> 9
+SELECT * FROM movies WHERE imdb_rating	>=6 AND imdb_rating<=8
+SELECT * FROM movies WHERE release_year IN (2021,2019,2023)
+SELECT * FROM movies WHERE imdb_rating is NULL
+select * from movies where imdb_rating >8 order by release_year
+select * from movies order by studio, language_id
+SELECT * FROM movies WHERE industry = "bollywood" ORDER BY imdb_rating DESC
+SELECT * FROM movies WHERE industry = "bollywood" ORDER BY imdb_rating DESC LIMIT 5
+SELECT * FROM movies WHERE industry = "bollywood" ORDER BY imdb_rating DESC LIMIT 5 OFFSET 2
+select * from movies where industry = "Bollywood" or industry = "Hollywood" and not studio = "Marvel Studios";
+SELECT MAX(imdb_rating) FROM movies WHERE industry = "bollywood"
+SELECT ROUND(AVG(imdb_rating) , 2) FROM movies WHERE industry = "bollywood"
+SELECT ROUND(AVG(imdb_rating) , 2) as avg_rating FROM movies WHERE industry = "bollywood"
+SELECT industry ,COUNT(*) FROM movies GROUP BY industry
+SELECT studio ,COUNT(*) FROM movies GROUP BY studio
+SELECT studio ,COUNT(*) as cnt  FROM movies GROUP BY studio ORDER BYN cnt DESC
+SELECT industry ,COUNT(industry) as cnt , avg(imdb_rating) as avg_rating FROM movies GROUP BY studio ORDER BY avg_rating DESC
+SELECT release_year ,count(*) FROM movies GROUP BY release_year
+SELECT movies.movie_id , title ,  budget , revenue , currency , unit FROM movies JOIN financials on movies.movie_id = financial.movie_id
+
+insert into movies (movie_id , title , industry , release_year , imdb_rating , studio
+,language_id) values (144, 'Rajesh:chap1','Tollywood',2024 , 9.0 , 'mypictures',5)
+update movies set studio = 'king new pictures' , language_id = 3
+where movies_id = 101;
+update movies set studio = "kingf" where title = "3 idiots"
+delete from movies where movie_id = 105;
+select * from movies limit 3 offset 5;
+select * from movies where title between 'Inception' and 'Parasite' LIMIT 3
+select * from movies where studio like "%a%"
+select max(imdb_rating) as rate from movies
+select avg(imdb_rating) from movies where imdb_rating != 8
+select movies.release_year , movies.movie_id , movies.title from movies
+join financials on movies.movie_id = financials.movie_id
+
+
+create table artist (artist_id int ,namess varchar(255));
+insert into artist values(1 , 'amigo'),(2 , 'Aerosmith'),(3,'messi');
+create table album (album_id int , title varchar(255), artist_id varchar(255));
+insert into album values(1 , 'for those who rock' , 1) , (2, 'Dream on',2),(3 , 'Restless and wild ',2),
+(4,'Let there be rock	',1),(5, 'rumours',6);
+select * from artist;
+select * from album;
+
+JOINS:
+INNER JOINS:
+An inner join between two tables will return only records where a joining field, such as a key, finds a match in both tables.
+select artist.namess , artist.artist_id ,album.title from artist inner join album using(artist_id);
+with USING
+select * from artist as art inner join album as alb using (artist_id);
+
+LEFT JOIN
+A left join keeps all of the original records in the left table and returns missing values for any columns from the right table where the joining field did not find a match.
+select * from artist as art left join album as alb using (artist_id);
+
+RIGHT JOIN
+A right join keeps all of the original records in the right table and returns missing values for any columns from the left table where the joining field did not find a match. Right joins are far less common than left joins, because right joins can always be re-written as left joins.
+select * from artist as art right join album as alb using (artist_id);
+select artist.namess , artist.artist_id ,album.title from artist right join album using(artist_id)
+
+
+FULL JOIN or OUTER JOIN
+A full join combines a left join and right join. A full join will return all records from a table, irrespective of whether there is a match on the joining field in the other table, returning null values accordingly.
+select * from artist full join album using (artist_id);
+
+UNION
+The UNION operator is used to vertically combine the results of two SELECT statements. For UNION to work without errors, all SELECT statements must have the same number of columns and corresponding columns must have the same data type. UNION does not return duplicates.
+select artist_id from artist union select artist_id from album
+
+UNION ALL
+The UNION ALL operator works just like UNION, but it returns duplicate values. The same restrictions of UNION hold true for UNION ALL
+select artist_id from artist union all select artist_id from album
+
+
+GROUP BY : In SQL, the GROUP BY clause is used to group rows that have the same values in specified columns into summary rows.
+select release_year , industry , count(*) from movies group by release_year , industry order by release_year desc
+
+
+ORDER BY :
+The ORDER BY clause in SQL is used to sort the result set of a query by one or more columns.
+select release_year ,industry from movies group by release_year , industry order by release_year desc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

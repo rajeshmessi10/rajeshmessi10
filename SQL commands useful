@@ -83,8 +83,39 @@ ORDER BY :
 The ORDER BY clause in SQL is used to sort the result set of a query by one or more columns.
 select release_year ,industry from movies group by release_year , industry order by release_year desc
 
+
 update movies set industry = 'Hollywood' where movie_id = 101
 delete from artist where namess = 'king'
+alter table artist add numbers varchar(255)
+drop table tablename
+
+BACKUP DATABASE databasename
+TO DISK = 'filepath';
+
+
+SELECT customer_id, COUNT(*) AS purchase_count
+FROM purchases
+GROUP BY customer_id
+HAVING COUNT(*) > 5;
+
+How would you retrieve the top 10 customers based on total purchase value?:
+SELECT customer_id, SUM(amount) AS total_spent
+FROM transactions
+GROUP BY customer_id
+ORDER BY total_spent DESC
+LIMIT 10;
+
+Write a query to calculate the average order value per customer.
+SELECT customer_id, AVG(amount) AS avg_order_value
+FROM transactions
+GROUP BY customer_id;
+
+SELECT customer_id, AVG(amount) AS avg_order_value
+FROM transactions
+GROUP BY customer_id;
+
+
+
 
 
 

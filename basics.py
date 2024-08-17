@@ -4,10 +4,12 @@ a = [1, 2, 3, 4, 5, 6]
 for ith in range(len(a) // 2):  # div the list to half and replace each other
     a[ith], a[len(a) - ith - 1] = a[len(a) - ith - 1], a[ith]
 print(a)
+
 # to get max value and key in dictionary
 dic = {1: 2, 3: 56, 7: 90, 0: 88, 4: 456, 8: 9087}
 print(max(dic, key=dic.get))
 print(max(dic.values()))
+
 # print from reverse angle of list or range of numbers
 for it in range(11, -1, -1):
     print(it)
